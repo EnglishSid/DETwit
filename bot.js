@@ -1,4 +1,7 @@
 console.log('Running');
+console.log('Script to return the top 5 trends from Digital Explorer and search Twitter for the most recent posts using these as hashtags');
+console.log('==============================');
+console.log('');
 
 var Twit = require ('twit');
 var Twitconfig = (require('./twitconfig.js'));
@@ -28,34 +31,24 @@ session
             });
     }); 
     //
-    console.log('xxx');
-    gotNeoData;
+    for (var n = 1;n < TrendArr.length;n++)
+    {
+        //Step2 for each top trend grab the latest tweets about them
+        console.log('DIGITAL EXPLORER TREND:');
+        console.log(TrendArr[n].Trend);
+        console.log('=========================');
+        console.log('Twitter....')
+        var searchstring="{q: '" + TrendArr[n].Trend + "', count: 5 }";
+        console.log(searchstring); 
+        T.get('search/tweets', {q: '3D printing', count: 5 }, function(err, data, response) {
+            var tweets=data.statuses;
+            for (var i=0;i < tweets.length;i++){
+                console.log(tweets[i].text);
+            }
+          })
+
+    };
 })
 .catch(function(err){
     console.log(err)
 })  
-
-function gotNeoData(err,data,response){
-    console.log('yyy');
-    var neotrends = TrendArr.Trend;
-    for (var n = 0;n < TrendArr.length;n++){
-        console.log(neotrends[n].Trend);
-    }
-}
-
-//Step2 for each top trend grab the latest tweets about them
-
-var params ={
-
-    q: 'rainbow',
-    count:2
-}
-
-T.get('search/tweets', params, gotData);
-
-function gotData(err,data,response){
-    var tweets = data.statuses;
-    for (var i = 0;i < tweets.length;i++){
-        console.log(tweets[i].text);
-    }
-}
