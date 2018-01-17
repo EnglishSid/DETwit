@@ -12,13 +12,16 @@
 
 ### install
 
-clone repo
+clone\download repo
+~~~~
 npm install
+~~~~
 
 ### running
 ensure Neo is avaiable
+~~~~
 node bot.js
-
+~~~~
 
 ### Aim 
 Provide a realtime twitter feed against a named trend within the DE solution
