@@ -2,12 +2,23 @@
 
 ### Dependancies
 
+* node.js 
 * twit : https://github.com/ttezel/twit
 * neo4j driver : https://www.npmjs.com/package/neo4j-driver
 
 ### Requires
 * Neo4j (local or remote)
 * DXC Digital Explorer dataset - for trend data
+
+### install
+
+clone repo
+npm install
+
+### running
+ensure Neo is avaiable
+node bot.js
+
 
 ### Aim 
 Provide a realtime twitter feed against a named trend within the DE solution
