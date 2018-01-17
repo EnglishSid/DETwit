@@ -20,6 +20,7 @@ neoquery += "RETURN id(t) AS Nodeid, t.name AS name, connections ";
 neoquery += "ORDER BY connections DESC LIMIT 5 ";
 
 var TrendArr =[];
+var searchstring;
 
 session 
 .run(neoquery)
@@ -38,15 +39,14 @@ session
         console.log(TrendArr[n].Trend);
         console.log('=========================');
         console.log('Twitter....')
-        var searchstring="{q: '" + TrendArr[n].Trend + "', count: 5 }";
-        console.log(searchstring); 
-        T.get('search/tweets', {q: '3D printing', count: 5 }, function(err, data, response) {
+        var searchText = TrendArr[n].Trend
+        T.get('search/tweets', { q: '" + searchText + "', count: 10 }, function(err, data, response) {
             var tweets=data.statuses;
             for (var i=0;i < tweets.length;i++){
                 console.log(tweets[i].text);
             }
           })
-
+          console.log('=========================');
     };
 })
 .catch(function(err){
