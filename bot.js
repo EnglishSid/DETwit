@@ -1,7 +1,7 @@
 console.log('Running');
 console.log('Script to return the top 5 trends from Digital Explorer and search Twitter for the most recent posts using these as hashtags');
 console.log('==============================');
-console.log('');
+console.log(' ');
 
 var Twit = require ('twit');
 var Twitconfig = (require('./twitconfig.js'));
